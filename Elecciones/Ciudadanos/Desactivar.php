@@ -11,16 +11,21 @@ if (isset($_SESSION['administracion'])) {
 } else {
     header('Location: ../Login/Login.php');
 }
-
-$datos = new Ciudadano('../../PhpMyAdmin');
-
-if(isset($_GET['cedula'])) {
-
-    $cedula = $_GET['cedula'];
-
-    $datos->Deshabilitar($cedula);
-
+$elecciones = json_decode($_SESSION['elecciones']);
+if ($elecciones->estado == 1){
     header('Location: Admin.php');
+}else{
+    $datos = new Ciudadano('../../PhpMyAdmin');
+
+    if(isset($_GET['cedula'])) {
+    
+        $cedula = $_GET['cedula'];
+    
+        $datos->Deshabilitar($cedula);
+    
+        header('Location: Admin.php');
+    }
 }
+
 
 ?>

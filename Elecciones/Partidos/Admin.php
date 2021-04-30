@@ -7,7 +7,10 @@ require_once 'Partidos.php';
 require_once '../../Constructor/Partidos.php';
 
 session_start();
+if (isset($_SESSION['elecciones'])) {
 
+    $Elecciones = json_decode($_SESSION['elecciones']);
+}
 if (isset($_SESSION['administracion'])) {
     $admin = json_decode($_SESSION['administracion']);
 } else {
@@ -23,7 +26,7 @@ $partidos = $datospartidos->getAll();
 
 <div class="row">
     <div class="col-md-10"></div>
-    <a class="btn btn-dark margin-top-1" data-bs-toggle="modal" data-bs-target="#elecciones">
+    <a class="btn btn-dark margin-top-1 margin-bottom-2" data-bs-toggle="modal" data-bs-target="#elecciones">
         Agregar Partido</a>
     <div class="col-md-8"></div>
 </div>
@@ -41,32 +44,34 @@ $partidos = $datospartidos->getAll();
     
     <?php else : ?>
         <?php foreach ($partidos as $partido) : ?>
-    <div class="bs-example shadows">
-        <div class="card">
-            <div class="row no-gutters">
-                <div class="col-sm-5">
-                    <img width="210" height="210" src="../../assets/Img/Partidos/<?= $partido->logo; ?>" >
-                </div>
-            
-                <div class="col-sm-7">
-                    <div class="card-body">
-                        <h4 class="card-text"><strong><?= $partido->nombre; ?></strong></h4>
-                        <p class="card-title"><?= $partido->descripcion; ?></h5>
-                    <div> 
-                        <a href="Editar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-dark">Editar</a>
+            <?php if ( $partido->nombre == "Nulo") : ?>
+
+            <?php else : ?>
+
+            <div class="margin-top-2"></div>
+            <div class="col-md-3 margin-bottom-4">
+            <div class="card shadows">
+  
+                <img class="bd-placeholder-img card-img-top" src="../../assets/Img/Partidos/<?= $partido->logo; ?>" width="200" height="250" aria-label="Placeholder: Thumbnail">
+        
+                 <div class="card-body">
+                    <h5><strong class="card-title"><?= $partido->nombre; ?></strong></h5>
+                    <p class="card-text"><?= $partido->descripcion; ?></p>
+                
+                    <a href="Editar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-dark">Editar</a>
                     <?php if ($partido->estado == 1) : ?>
-                        <a href="Desactivar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-danger">Desactivar</a>
+                    <a href="Desactivar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-danger">Desactivar</a>
                     <?php else : ?>
-                        <a href="Activar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-success">Activar</a>
+                    <a href="Activar.php?id_partido=<?= $partido->id_partido; ?>" class="btn btn-success">Activar</a>
                     <?php endif; ?>
-                    </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <?php endif; ?>
     <?php endforeach; ?>
-<?php endif; ?>
+    <?php endif; ?>
+    </div>
+</div>
     
 <div class="modal fade" id="elecciones" tabindex="-1" aria-labelledby="Elecciones" aria-hidden="true">
     <div class="modal-dialog">

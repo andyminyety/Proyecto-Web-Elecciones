@@ -4,6 +4,7 @@ require_once '../../Layouts/Layout.php';
 require_once '../../Helpers/File/JsonFile.php';
 require_once 'Administracion.php';
 require_once '../../PhpMyAdmin/IDatabase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once '../PuestoElectivo/Puesto.php';
 require_once '../../Constructor/Puestos.php';
 

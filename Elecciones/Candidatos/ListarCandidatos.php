@@ -55,8 +55,11 @@ if (isset($_GET['id_puesto'])) {
 
         <?php else : ?>
             <?php foreach ($candidatos as $candidato) : ?>
-          
-    <div class="bs-example shadows">
+                <?php if ( $candidato->nombre == "Voto") : ?>
+
+        
+                <?php else : ?>  
+                    <div class="bs-example shadows">
         <div class="card" style="max-width: 500px;">
             <div class="row no-gutters">
                 <div class="col-sm-5">
@@ -79,7 +82,9 @@ if (isset($_GET['id_puesto'])) {
                 </div>
             </div>
         </div>
-    </div>   
+    </div> 
+ 
+    <?php endif; ?> 
     <?php endforeach; ?>
 </div>
 <?php endif; ?>

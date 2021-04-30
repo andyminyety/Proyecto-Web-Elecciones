@@ -9,9 +9,12 @@ require_once '../../Constructor/Puestos.php';
 
 session_start();
 
+
 if (isset($_SESSION['administracion'])) {
     $admin = json_decode($_SESSION['administracion']);
+
 } else {
+    
     header('Location: ../Login/Login.php');
 }
 

@@ -52,7 +52,7 @@ if (isset($_GET['id_partido'])) {
         <div class="col-md-6 margin-bottom-2">
             <div class="card shadows">
                 <div class="modal-header text-white bg-dark">
-                    <h5 class="modal-title h4" id="NuevoStudentLabel">Editar Puesto Electivo</h5>
+                    <h5 class="modal-title h4" id="NuevoStudentLabel">Editar Partido</h5>
                 </div>
                 
                 <div class="modal-body">

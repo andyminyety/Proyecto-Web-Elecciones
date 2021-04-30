@@ -13,15 +13,24 @@ if (isset($_SESSION['administracion'])) {
     header('Location: ../Login/Login.php');
 }
 
-$datos = new Puesto('../../PhpMyAdmin');
-
-if(isset($_GET['id_puesto'])) {
-
-    $idpuesto = $_GET['id_puesto'];
-
-    $datos->Deshabilitar($idpuesto);
-
+$elecciones = json_decode($_SESSION['elecciones']);
+if ($elecciones->estado == 1){
+    echo "<script alert('No puede desactivar el puesto porque hay una elección activa.')</script>";
     header('Location: PuestoElectivo.php');
+}else{
+    $datos = new Puesto('../../PhpMyAdmin');
+
+    if(isset($_GET['id_puesto'])) {
+
+        $idpuesto = $_GET['id_puesto'];
+    
+        $datos->Deshabilitar($idpuesto);
+    
+        header('Location: PuestoElectivo.php');
+    }
+    
+
 }
+
 
 ?>

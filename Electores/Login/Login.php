@@ -4,6 +4,7 @@ require_once '../../Layouts/Layout.php';
 require_once '../../Helpers/File/JsonFile.php';
 require_once '../../PhpMyAdmin/DataBaseConnection.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once '../../Constructor/Ciudadanos.php';
 require_once '../../Elecciones/Ciudadanos/Ciudadanos.php';
 require_once '../../Elecciones/PuestoElectivo/Puesto.php';
@@ -33,15 +34,15 @@ if(isset($_POST['cedula'])) {
 
             header('Location: ../../index.php');
             
-        }
+        } 
 
     }else {
 
-        echo "<script alert('No hay elecciones activa.')</script>";
-    }
-    
+        echo "<script> alert('No hay elecciones activa.')</script>";
+    } 
 } 
 ?>
+
 <?php $layout->Header(); ?>
 
 <h1 class="margin-top-2 text-center text-dark"><strong>Bienvenido a las Elecciones del 2021</strong></h1>
@@ -51,7 +52,7 @@ if(isset($_POST['cedula'])) {
         <div id="formContent">
 
         <div class="modal-body">
-            <h3 class="margin-top-4 text-center text-dark margin-bottom-2"><strong>Elecciones</strong></h3>
+            <h3 class="text-center text-dark margin-top-2 margin-bottom-2"><strong>Elecciones</strong></h3>
         
             <div class="fadeIn first">
                 <img src="../../assets/Img/Almacenamiento/votar.png" class="icon margin-bottom-3" alt="User Icon"/></div>

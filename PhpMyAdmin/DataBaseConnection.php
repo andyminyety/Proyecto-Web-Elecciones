@@ -13,7 +13,7 @@ class DataBaseConnection {
 
         if($this->db->connect_error) {
 
-            exit('Error de conexión');
+            exit('Error de Conexión en la Base de Datos');
         }
     }
 }

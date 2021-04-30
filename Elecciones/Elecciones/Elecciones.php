@@ -1,6 +1,6 @@
 <?php
 
-class Eleccion implements IDataBase
+class Eleccion implements IDataBase2
 {
 
     private $connection;
@@ -209,14 +209,6 @@ class Eleccion implements IDataBase
         }
     }
 
-    function getActive()
-    {
-    }
-
-    function getInactive()
-    {
-    }
-
     function getById($id)
     {
         $tabla = array();
@@ -280,7 +272,7 @@ class Eleccion implements IDataBase
         $stm->execute();
 
         $idvoto = $this->connection->db->insert_id;
-        header('Location: Iniciar.php?ultimate_id=' . $idvoto);
+        header('Location: Iniciar.php?id_voto=' . $idvoto);
     }
 
     function AddResultado($id_elecciones,$id_candidato,$id_partido,$id_puesto,$cedula)
@@ -290,16 +282,11 @@ class Eleccion implements IDataBase
         $stm->execute();
 
     }
-
-    function Habilitar($id)
-    {
+    
+    function Deshabilitar($id) {
+        $stm = $this->connection->db->prepare('Update Elecciones set estado = 0 where id_elecciones = ?');
+        $stm->bind_param('i', $id);
+        $stm->execute();
     }
 
-    function Deshabilitar($id)
-    {
-    }
-
-    function Edit($entity)
-    {
-    }
 }

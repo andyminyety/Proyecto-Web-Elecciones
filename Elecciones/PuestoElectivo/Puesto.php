@@ -132,6 +132,12 @@ class Puesto implements IDataBase
         $stm->bind_param('ss', $entity->nombre, $entity->descripcion);
         $stm->execute();
     }
+    function CandidatoGenerico($id)
+    {
+        $stm = $this->connection->db->prepare('insert into Candidatos( nombre, apellido, id_partido, id_puesto, foto, estado) VALUES ("Voto","Nulo",1,?,"Genérico.jpeg",1);');
+        $stm->bind_param('i', $id);
+        $stm->execute();
+    }
 
     function Habilitar($id)
     {

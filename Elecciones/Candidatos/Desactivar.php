@@ -15,18 +15,22 @@ if (isset($_SESSION['administracion'])) {
 } else {
     header('Location: ../Login/Login.php');
 }
-
-$servicio = new Candidato('../../PhpMyAdmin');
-
-if(isset($_GET['id'])) {
-    
-    $idcandidato = $_GET['id'];
-
-    $id = $servicio->GetById($_GET["id"]);
-
-    $servicio->Deshabilitar($id->id_candidato);
-
+$elecciones = json_decode($_SESSION['elecciones']);
+if ($elecciones->estado == 1){
     header("Location: ListarCandidatos.php");
+}else{
+    $servicio = new Candidato('../../PhpMyAdmin');
+
+    if(isset($_GET['id'])) {
+        
+        $idcandidato = $_GET['id'];
+    
+        $id = $servicio->GetById($_GET["id"]);
+    
+        $servicio->Deshabilitar($id->id_candidato);
+    
+        header("Location: ListarCandidatos.php");
+    }
 }
 
 

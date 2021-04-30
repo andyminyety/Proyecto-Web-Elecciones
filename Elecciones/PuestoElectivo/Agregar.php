@@ -12,6 +12,7 @@ session_start();
 $layout = new Layout(true, false);
 $datos = new Puesto('../../PhpMyAdmin');
 
+
 if (isset($_SESSION['administracion'])) {
     $admin = json_decode($_SESSION['administracion']);
 } else {
@@ -25,6 +26,8 @@ if(isset($_POST['nombre']) && isset($_POST['descripcion'])) {
     $puesto->descripcion = $_POST['descripcion'];
 
     $datos->add($puesto);
+    $id = $_GET['id_puesto'];
+    $datos->candidatoGenerico($id);
     echo "<script> alert('El puesto ha sido añadido correctamente.'); </script>";
 
     header('Location: PuestoElectivo.php');

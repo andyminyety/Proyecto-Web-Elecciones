@@ -1,23 +1,15 @@
 <?php 
 
 require_once '../../PhpMyAdmin/DataBaseConnection.php';
-require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 
-class Administracion implements IDataBase {
+class Administracion implements IDataBase2 {
 
     private $connection;
 
     function __construct($directory)
     {
         $this->connection = new DataBaseConnection($directory);
-    }
-
-    function getActive() {
-
-    }
-
-    function getInactive() {
-        
     }
 
     function getById($id) {
@@ -27,16 +19,8 @@ class Administracion implements IDataBase {
     function Add($entity) {
 
     }
-
-    function Habilitar($id) {
-
-    }
-
+    
     function Deshabilitar($id) {
-
-    }
-
-    function Edit($entity) {
 
     }
 

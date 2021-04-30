@@ -165,3 +165,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO Ciudadanos(cedula, nombre, apellido, email, estado) VALUES ('40200745277','Andy Jose','Peña Minyety','andyminyety@hotmail.com',1);
 INSERT INTO Administracion(usuario, clave, nombre, apellido, cedula) VALUES ('admin','12345','Andy Jose','Peña Minyety','40200745277');
+INSERT INTO Puestos(id_puesto, nombre, descripcion, estado) VALUES (1,'Presidente','Es la persona designada profesionalmente para dirigir un Gobierno.',1);
+INSERT INTO Partidos(id_partido, nombre, descripcion, logo, estado) VALUES (1,'Voto Nulo','Ninguno','Nulo.png',1);
+INSERT INTO Candidatos(id_candidato, nombre, apellido, id_partido, id_puesto, foto, estado) VALUES (1,'Voto','Nulo',1,1,'Genérico.jpeg',1);

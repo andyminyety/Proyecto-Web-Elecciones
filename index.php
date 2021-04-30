@@ -3,6 +3,7 @@ require_once 'Layouts/Layout.php';
 require_once 'Helpers/File/JsonFile.php';
 require_once 'PhpMyAdmin/DataBaseConnection.php';
 require_once 'PhpMyAdmin/IDatabase.php';
+require_once 'PhpMyAdmin/IDatabase2.php';
 require_once 'Elecciones/PuestoElectivo/Puesto.php';
 require_once 'Elecciones/Elecciones/Elecciones.php';
 require_once 'Constructor/Puestos.php';
@@ -57,7 +58,7 @@ $puestos = $verificacion->MostrarPuesto($ciudadano->cedula,$elecciones->id_elecc
     </div>
     <div class="col-md-6"></div>
 
-<?php  elseif  ($puestos == "" || $puestos == null || $ciudadano->estado == 0) : ?>
+<?php  elseif  ($puestos == "" || $puestos == null || $ciudadano->estado == 0 ) : ?>
 
     <div class="col-md-3"></div>
     <div class="col-md-6">
@@ -68,9 +69,11 @@ $puestos = $verificacion->MostrarPuesto($ciudadano->cedula,$elecciones->id_elecc
     <div class="col-md-6"></div>
 
     <?php else : ?>
-        <?php foreach ($puestos as $puesto) : ?>
+        <?php foreach ( $puestos as $puesto ) : ?>
+            <?php if ( $puesto->estado == 0) : ?>
 
-            <div class="col-md-4 margin-bottom-4">
+                <?php else : ?>
+                    <div class="col-md-4 margin-bottom-4">
                 <div class="card shadows">
                     <div class="modal-header text-white bg-dark">
                         <h5 class="modal-title h4" id="NuevoStudentLabel">Elecciones - <?= $puesto->nombre; ?></h5>
@@ -83,6 +86,7 @@ $puestos = $verificacion->MostrarPuesto($ciudadano->cedula,$elecciones->id_elecc
                     </div>
                 </div>
             </div>
+                    <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
 </div>

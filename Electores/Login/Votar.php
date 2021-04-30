@@ -2,6 +2,7 @@
 
 require_once '../../Helpers/File/JsonFile.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once '../../Elecciones/Elecciones/Elecciones.php';
 require_once '../../Elecciones/Candidatos/Candidatos.php';
 require_once '../../Elecciones/PuestoElectivo/Puesto.php';
@@ -46,7 +47,7 @@ if(isset($_GET['id_candidato'])) {
         $puestos = $puesto->getById($ciudadano->id_puesto);
         $partidos = $partido->getById($ciudadano->id_partido);
         $body = "Saludos estimado/a " . "<strong>$ciudadanos->nombre</strong>" . " usted ha votado por el candidato ". "<strong>$ciudadano->nombre</strong>" . " " . "<strong>$ciudadano->apellido</strong>" . 
-        " del partido " . "<strong>$partidos->nombre</strong>" . " el cual se postula para el puesto de " . "<strong>$puestos->nombre</strong>." . " ¡Gracias por ejercer su voto!.";
+        " del partido " . "<strong>$partidos->nombre</strong>" . " el cual se postula para el puesto de " . "<strong>$puestos->nombre</strong>." . " " . "Gracias por ejercer su voto.";
         $email->sendEmail($ciudadanos->email,"Tu Voto 2021", $body);
     }
 

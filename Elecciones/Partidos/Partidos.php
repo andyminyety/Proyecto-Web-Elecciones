@@ -147,6 +147,9 @@ class Partido implements IDataBase
         $stm->bind_param('i', $id);
         $stm->execute();
     }
+    function candidatoGenerico($id)
+    {
+    }
 
     function Deshabilitar($id)
     {

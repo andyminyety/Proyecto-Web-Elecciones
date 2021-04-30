@@ -14,7 +14,11 @@ if (isset($_SESSION['administracion'])) {
     header('Location: ../Login/Login.php');
 }
 
-$datos = new Partido('../../PhpMyAdmin');
+$elecciones = json_decode($_SESSION['elecciones']);
+if ($elecciones->estado == 1){
+    header('Location: Admin.php');
+}else{
+    $datos = new Partido('../../PhpMyAdmin');
 
 if(isset($_GET['id_partido'])) {
 
@@ -24,5 +28,9 @@ if(isset($_GET['id_partido'])) {
 
     header('Location: Admin.php');
 }
+
+}
+
+
 
 ?>

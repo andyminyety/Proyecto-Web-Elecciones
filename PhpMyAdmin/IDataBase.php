@@ -9,6 +9,7 @@ interface IDataBase {
     function Habilitar($id);
     function Deshabilitar($id);
     function Edit($entity);
+    function CandidatoGenerico($id);
 }
 
 ?>

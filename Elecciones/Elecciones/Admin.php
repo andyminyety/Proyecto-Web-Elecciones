@@ -3,8 +3,10 @@
 require_once '../../Layouts/Layout.php';
 require_once '../../helpers/File/JsonFile.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once 'Elecciones.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once '../Candidatos/Candidatos.php';
 require_once '../Partidos/Partidos.php';
 require_once '../PuestoElectivo/Puesto.php';
@@ -41,10 +43,12 @@ if (count($candidatosresultado) > 1 && count($partidosresultado) > 1 && count($p
 ?>
 
 <?php $layout->Header(); ?>
+
 <div class="row">
     <div class="col-md-10"></div>
     <?php if (isset($_SESSION['elecciones'])) : ?>
-        <a class="btn btn-dark margin-top-1" href="Terminar.php">Terminar elecciones.</a></div>
+        <?php $Elecciones = json_decode($_SESSION['elecciones']); ?>
+        <a class="btn btn-dark margin-top-1"  href="Terminar.php?id_elecciones=<?= $Elecciones->id_elecciones; ?>">Terminar elecciones.</a></div>
     <?php elseif ($cambio == true) : ?>
         <a class="btn btn-dark margin-top-1" href="Iniciar.php">Iniciar elecciones.</a></div>
     <?php elseif ($cambio == false) : ?>
@@ -67,6 +71,7 @@ if (count($candidatosresultado) > 1 && count($partidosresultado) > 1 && count($p
 
 <?php else : ?>
     <?php foreach ($elecciones as $eleccion) : ?>
+
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10">

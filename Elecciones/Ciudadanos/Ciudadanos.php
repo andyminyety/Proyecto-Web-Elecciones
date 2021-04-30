@@ -114,6 +114,10 @@ class Ciudadano implements IDataBase
         $stm->bind_param('ssss', $entity->cedula, $entity->nombre, $entity->apellido, $entity->email);
         $stm->execute();
     }
+    
+    function CandidatoGenerico($id)
+    {
+    }
 
     function Habilitar($id)
     {

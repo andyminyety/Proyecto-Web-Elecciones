@@ -9,6 +9,7 @@ require_once '../../Elecciones/Candidatos/Candidatos.php';
 require_once '../../Elecciones/Partidos/Partidos.php';
 require_once '../../Elecciones/PuestoElectivo/Puesto.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 
 session_start();
 
@@ -20,8 +21,6 @@ $layout = new Layout(true, true);
 $datos = new Candidato('../../PhpMyAdmin');
 $datospartido = new Partido('../../PhpMyAdmin');
 $datospuesto = new Puesto('../../PhpMyAdmin');
-
-
 $candidatos = $datos->getActive();
 
 if (isset($_GET['id_puesto'])) {
@@ -39,7 +38,7 @@ if (isset($_GET['id_puesto'])) {
             <div class="col-md-6">
                 <h2 class="text-center margin-top-4"><strong>No hay candidatos</strong></h2>
                 <p class="text-center">Por favor volver al inicio.</p>
-                <div class="text-center"><img src="../../assets/Img/Almacenamiento/out.png" class="icon" alt="User Icon"></div>
+                <div class="text-center"><img src="../../assets/Img/Almacenamiento/no disponible.png" class="icon" alt="User Icon"></div>
             </div>
         <div class="col-md-6"></div>
     </div>
@@ -47,11 +46,9 @@ if (isset($_GET['id_puesto'])) {
     <?php else : ?>
     <?php foreach ($candidatos as $candidato) : ?>
 
-     <?php if ($candidato->estado == 0) {
+        <?php if ( $candidato->estado == 0) : ?>
 
-        }
-        ?>
-            
+            <?php else : ?>
         <div class="col-md-3 margin-bottom-4">
             <div class="card shadows">
                 <div class="modal-header text-white bg-dark">
@@ -69,6 +66,7 @@ if (isset($_GET['id_puesto'])) {
                 </div>
             </div>
         </div>
+        <?php endif; ?>
         <?php endforeach; ?>
         <?php endif; ?>
     <?php ?>

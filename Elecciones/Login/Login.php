@@ -3,6 +3,7 @@
 require_once '../../Layouts/Layout.php';
 require_once '../../Helpers/File/JsonFile.php';
 require_once '../../PhpMyAdmin/IDataBase.php';
+require_once '../../PhpMyAdmin/IDataBase2.php';
 require_once 'Administracion.php';
 require_once '../../Constructor/Administrador.php';
 
@@ -41,12 +42,12 @@ $layout = new Layout(true, true);
 <?php $layout->Header(); ?>
 
 <div class="margin-top-9">
-	<div class="fadeInDown d-flex justify-content-center margin-top-9">
-		<div class="user_card">
+	<div class="d-flex justify-content-center margin-top-9">
+		<div class="user_card fadeInDown">
 			<div class="d-flex justify-content-center">
 				<div class="brand_logo_container">
 					<img src="../../assets/Img/Almacenamiento/logo.jpeg" class="brand_logo" alt="Logo">
-					<h3 class="margin-top-6"><strong>Login</strong></h3>
+					<h2 class="margin-top-20"><strong>Login</strong></h2>
 				</div>
 			</div>
 			
