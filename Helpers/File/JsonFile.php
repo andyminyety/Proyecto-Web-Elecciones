@@ -11,6 +11,7 @@ class JsonFile{
     }
 
     public function getJSON() {
+        
         $path = $this->directory . '/' . $this->name . '.json';
         $file = fopen($path, 'r');
         $fileDecode = fread($file, filesize($path));

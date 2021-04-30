@@ -19,6 +19,7 @@ class Candidatos {
         $id_puesto,
         $foto,
         $estado
+        
     ) {
 
         $this->id_candidato = $id_candidato; 

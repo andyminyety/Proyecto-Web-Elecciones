@@ -39,7 +39,9 @@ class Layout {
             </li>
 
         EOF;
+        
         } else {
+
             $this->Menu = "";
         }
 

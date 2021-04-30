@@ -17,6 +17,7 @@ class Administrador {
         $nombre,
         $apellido,
         $cedula
+        
     ) {
 
         $this->id_usuario = $id_usuario;

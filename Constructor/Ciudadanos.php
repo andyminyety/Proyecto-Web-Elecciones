@@ -15,6 +15,7 @@ class Ciudadanos {
         $apellido,
         $email,
         $estado
+        
     ) {
 
         $this->cedula = $cedula; 

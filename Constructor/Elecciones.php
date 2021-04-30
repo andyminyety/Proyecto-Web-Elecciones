@@ -13,6 +13,7 @@ class Elecciones {
         $nombre,
         $fecha,
         $estado
+        
     ) {
 
         $this->id_elecciones = $id_elecciones;

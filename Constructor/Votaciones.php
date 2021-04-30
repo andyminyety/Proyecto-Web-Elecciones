@@ -17,6 +17,7 @@ class Votaciones {
         $id_puesto,
         $cedula,
         $resultado
+        
     ) {
 
         $this->id_elecciones = $id_elecciones;
